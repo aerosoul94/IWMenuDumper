@@ -64,11 +64,11 @@ void PrintMenuEventHandlerSet(FILE *f, MenuEventHandlerSet *s, const char *name,
 
 char *getTabs(int t)
 {
-	char *tabs = (char *)malloc(10);
-	memset(tabs, 0, 10);
+	static char tabs[10];
 	for (int i = 0;
 		i < t && i < 10; i++)
 		*(tabs + i) = '\t';
+	*(tabs + t) = 0;
 	return tabs;
 }
 
