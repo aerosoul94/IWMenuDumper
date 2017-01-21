@@ -666,7 +666,7 @@ DWORD WINAPI DumpMenus(LPVOID)
 			PrintStatement(f, m[n].data->openSoundExp, "exp openSound", 2);
 			PrintStatement(f, m[n].data->closeSoundExp, "exp closeSound", 2);
 			PrintStatement(f, m[n].data->soundLoopExp, "exp soundLoop", 2);
-			PrintItemKeyHandler(f, m[n].data->onKey, "execKey", 2);
+			PrintItemKeyHandler(f, m[n].data->onKey, "execKeyInt", 2);
 			PrintMenuEventHandlerSet(f, m[n].data->onOpen, "onOpen", 2);
 			PrintMenuEventHandlerSet(f, m[n].data->onRequestClose, "onRequestClose", 2);
 			PrintMenuEventHandlerSet(f, m[n].data->onClose, "onClose", 2);
@@ -690,7 +690,7 @@ DWORD WINAPI DumpMenus(LPVOID)
 			PrintStatement(f, m[n].rectWExp, "exp rect w", 2);
 			PrintStatement(f, m[n].openSoundExp, "exp openSound", 2);
 			PrintStatement(f, m[n].closeSoundExp, "exp closeSound", 2);
-			PrintItemKeyHandler(f, m[n].onKey, "execKey", 2);
+			PrintItemKeyHandler(f, m[n].onKey, "execKeyInt", 2);
 			PrintMenuEventHandlerSet(f, m[n].onOpen, "onOpen", 2);
 			PrintMenuEventHandlerSet(f, m[n].onRequestClose, "onRequestClose", 2);
 			PrintMenuEventHandlerSet(f, m[n].onClose, "onClose", 2);
