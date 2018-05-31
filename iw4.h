@@ -252,7 +252,8 @@ struct Statement_s	// 0x18
 	int numEntries;
 	expressionEntry *entries;
 	ExpressionSupportingData *supportingData;
-	char unknown[0xC];	// ?
+	int lastExecuteTime;
+  Operand lastResult;
 };
 
 struct SetLocalVarData
@@ -427,9 +428,10 @@ struct columnInfo_s
 
 struct listBoxDef_s	// 0x144
 {
-  // somethings not right here
-  int startPos[2];
-  int endPos[2];
+  int mousePos;
+  int startPos[1];
+  int endPos[1];
+  int drawPadding;
   float elementWidth;
   float elementHeight;
   int elementStyle;
@@ -448,6 +450,10 @@ struct newsTickerDef_s
 	int feedId;
 	int speed;
 	int spacing;
+  int lastTime;
+  int start;
+  int end;
+  float x;
 };
 
 struct textScrollDef_s
@@ -469,7 +475,7 @@ union itemDefData_t
 struct itemDef_t
 {
   windowDef_t window;
-  rectDef_s textRect;
+  rectDef_s textRect[1];
   int type;
   int dataType;
   int alignment;
@@ -500,7 +506,7 @@ struct itemDef_t
   int dvarFlags;
   const char *focusSound;
   float special;
-  int cursorPos;
+  int cursorPos[1];
   itemDefData_t typeData;
   int imageTrack;
   int floatExpressionCount;
@@ -518,9 +524,10 @@ struct itemDef_t
   int lastSoundPlayedTime;
 };
 
-struct menuTransition	// 0x18
+struct menuTransition	// 0x1C
 {
   int transitionType;
+  int targetField;
   int startTime;
   float startVal;
   float endVal;
@@ -558,7 +565,10 @@ struct menuDef_t
   Statement_s *openSoundExp;
   Statement_s *closeSoundExp;
   itemDef_t **items;
-  char unknown[112];
+  menuTransition scaleTransition[1];
+  menuTransition alphaTransition[1];
+  menuTransition xTransition[1];
+  menuTransition yTransition[1];
   ExpressionSupportingData *expressionData;
 };
 
